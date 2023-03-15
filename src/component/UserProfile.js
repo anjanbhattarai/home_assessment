@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import moment from 'moment';
 import { ReactComponent as UserIcon } from "../assets/icons/user.svg"
 import  DropDownMoreIcon from "../assets/icons/expand_more.svg"
 import  DropDownLessIcon from "../assets/icons/expand_less.svg"
@@ -21,8 +22,7 @@ function UserProfile(user) {
   }
 
   const getLocalDateStringFromDate = (date) =>{
-    const d = new Date(date)
-    return user.lastLoggedIn = d.toLocaleString()
+    return moment(date).format("MM/DD/YYYY hh:mm A");
   }
 
   const formatPhoneNumber = (phoneNumberString)=> {
@@ -72,7 +72,7 @@ function UserProfile(user) {
         </div>
 
         <div className='drop-down'>
-            <img className='dropdown' style={{color: '#7e7e7e'}} src={showDropdown ? DropDownLessIcon : DropDownMoreIcon } onClick={handleDropDownClick}/>
+            <img className='dropdown' style={{color:'#7e7e7e'}} src={showDropdown ? DropDownLessIcon : DropDownMoreIcon } alt='notfound' onClick={handleDropDownClick}/>
           </div>
       </div>
   )
