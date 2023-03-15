@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <div className='NavHeader'>
       <GroupPicture className='group-picture'/>
-    <p>USERS</p>
+    <p style={{color:'#4a4a4a'}}>USERS</p>
   </div>
   )
 }

@@ -13,6 +13,7 @@
 }
 .NavHeader{
   display:flex;
+  color:#4a4a4a;
   background-color: #ffffff;
   height: 64px;
   font-size: 18px;

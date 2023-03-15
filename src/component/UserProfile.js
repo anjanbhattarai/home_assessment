@@ -20,6 +20,20 @@ function UserProfile(user) {
       else return 'black';
   }
 
+  const getLocalDateStringFromDate = (date) =>{
+    const d = new Date(date)
+    return user.lastLoggedIn = d.toLocaleString()
+  }
+
+  const formatPhoneNumber = (phoneNumberString)=> {
+    var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+    var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+      return '(' +match[1] + ') ' + match[2] + '-' + match[3];
+    }
+    return null;
+  }
+
   return (
       <div className = 'user-profile' key={user.id}>
         <div className='profile-picture'>
@@ -40,17 +54,17 @@ function UserProfile(user) {
               
               <div className='detailHeader'>
               <b>Phone</b>
-                <div className="detailItem">{user.phone}</div>  
+                <div className="detailItem">{formatPhoneNumber(user.phone)}</div>  
               </div>
 
               <div className='detailHeader'>
               <b>Created At</b>
-                <div className="detailItem">{user.createdAt}</div>  
+                <div className="detailItem">{getLocalDateStringFromDate(user.createdAt)}</div>  
               </div>
 
               <div className='detailHeader'>
               <b>Last Logged In</b>
-                <div className="detailItem">{user.lastLoggedIn}</div>  
+                <div className="detailItem">{getLocalDateStringFromDate(user.lastLoggedIn)}</div>  
               </div>
             </div>
           )}
@@ -58,7 +72,7 @@ function UserProfile(user) {
         </div>
 
         <div className='drop-down'>
-            <img className='dropdown' src={showDropdown ? DropDownLessIcon : DropDownMoreIcon } onClick={handleDropDownClick}/>
+            <img className='dropdown' style={{color: '#7e7e7e'}} src={showDropdown ? DropDownLessIcon : DropDownMoreIcon } onClick={handleDropDownClick}/>
           </div>
       </div>
   )

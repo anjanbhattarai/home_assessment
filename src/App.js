@@ -3,6 +3,7 @@ import './App.css';
 import  users from "./users.json";
 import Navbar from './component/Navbar';
 import UserProfile from './component/UserProfile';
+const moment=require('moment')
 
 function App() {
   return (
